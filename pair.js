@@ -9,22 +9,26 @@ const Jimp = require('jimp');
 const crypto = require('crypto');
 const axios = require('axios');
 const { default: makeWASocket, useMultiFileAuthState, makeCacheableSignalKeyStore, Browsers, jidNormalizedUser, proto, prepareWAMessageMedia, generateWAMessageFromContent, delay } = require('@whiskeysockets/baileys');
-const { MongoClient } = require('mongodb');
-const { v4: uuidv4 } = require('uuid');
+
 
 
 const router = express.Router();
 const config = require('./settings'); // assume config file exists
 
 // ================= MongoDB Setup =================
-const mongoUri = 'mongodb+srv://shanuka:Shanuka@cluster0.i9l2lts.mongodb.net/;';
+// MongoDB Setup
+const { MongoClient } = require('mongodb');
+const { v4: uuidv4 } = require('uuid');
+
+const mongoUri = 'mongodb+srv://dinuwa280:dinuwa280@cluster0.7qx49gm.mongodb.net/';
 const client = new MongoClient(mongoUri);
 let db;
 
 async function initMongo() {
     if (!db) {
         await client.connect();
-        db = client.db('Shanuka');
+        db = client.db('dinuwa280');
+        // Create index for faster queries
         await db.collection('sessions').createIndex({ number: 1 });
     }
     return db;
