@@ -12,7 +12,6 @@ const { default: makeWASocket, useMultiFileAuthState, makeCacheableSignalKeyStor
 const { MongoClient } = require('mongodb');
 const { v4: uuidv4 } = require('uuid');
 
-if (fs.existsSync('2nd_dev_config.env')) require('dotenv').config({ path: './2nd_dev_config.env' });
 
 const router = express.Router();
 const config = require('./settings'); // assume config file exists
