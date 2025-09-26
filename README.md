@@ -1,2 +1,2 @@
-# Mmmm
-Nb
+# FREEDOM-V2
+Freedom-MINI-BOT
